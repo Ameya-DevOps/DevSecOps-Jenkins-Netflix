@@ -14,13 +14,7 @@
   <p align="center">Home Page</p>
 </div>
 
-# **Youtube Video for step by step Demonstration!**
-[![Video Tutorial](https://img.youtube.com/vi/g8X5AoqCJHc/0.jpg)](https://youtu.be/g8X5AoqCJHc)
 
-
-## Susbcribe:
-[https://www.youtube.com/@cloudchamp?
-](https://www.youtube.com/@cloudchamp?sub_confirmation=1)
 
 # Deploy Netflix Clone on Cloud using Jenkins - DevSecOps Project!
 
@@ -333,15 +327,15 @@ pipeline{
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){   
                        sh "docker build --build-arg TMDB_V3_API_KEY=<yourapikey> -t netflix ."
-                       sh "docker tag netflix nasi101/netflix:latest "
-                       sh "docker push nasi101/netflix:latest "
+                       sh "docker tag netflix ameya1512/netflix:latest "
+                       sh "docker push ameya1512/netflix:latest "
                     }
                 }
             }
         }
         stage("TRIVY"){
             steps{
-                sh "trivy image nasi101/netflix:latest > trivyimage.txt" 
+                sh "trivy image ameya1512/netflix:latest > trivyimage.txt" 
             }
         }
         stage('Deploy to container'){
